@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出勤统计工具</title>
+    <!-- <script src="./vue.min.js"></script> -->
+    <script src="js/vue.js"></script>
+    <style>
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 5px;
+            padding: 0;
+            /* justify-content: space-around; */
+        }
+
+        ul>li {
+            /* flex: 1; */
+            padding: 10px;
+            background-color: blue;
+            color: #fff;
+            margin: 5px;
+        }
+
+        .input_text {
+            text-align: center;
+        }
+
+        .input_text>textarea {
+            width: 100%;
+            margin: 10px 0;
+            border: 1px solid lawngreen;
+            border-radius: 10px;
+        }
+
+        .active {
+            background: red;
+            transition: all .8s;
+        }
+
+        button {
+            padding: 5px 20px;
+            background: lightseagreen;
+            color: greenyellow;
+            box-shadow: 2px 3px 2px #ddd;
+        }
+
+        .span_count {
+            margin-left: 20px;
+            color: blue;
+        }
+
+        .span_count_red {
+            margin-left: 20px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>出勤统计器</h2>
+        <div class="box">
+            <div class="input_text">
+                <textarea name="" id="" cols="30" rows="10" v-model="text"></textarea>
+            </div>
+            <button @click="submit">提交</button>
+            <div v-for="(arr,key) in studentList">
+                <h3>班级：{{ key }} <span class="span_count">总人数：{{ arr.length }}</span><span
+                        class="span_count_red">已签到人数：{{ arr | activeCount }}</span></h3>
+                <ul>
+                    <li @click="toogle(item)" :class="item.isActive?'active':''" v-for="(item,index) in arr">
+                        {{ item.name }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button @click="clearStudentList">还原学生出勤记录</button>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                text: "",
+                studentList: {
+                    "2107A": ["刘然","张作栋","宋亚军","樊江涛","张美桦","刘浩清","石聪河","郑兴丹","何宇航","周子清","李梓萌","南竟锟","李思颖","潘浩强","王榕","张刚瑞","李虹羽","王雪松","樊芯茹","苟昌胜","智学","李文博","陶子飞","张祯","王大炜","高佳雪","魏骏孚","许金锁","李健","呼悦宇"]
+                },
+            }
+        },
+        filters: {
+            activeCount(val) {
+                let sum = 0
+                val.forEach((item) => {
+                    if (item.isActive) {
+                        sum++
+                    }
+                })
+                return sum
+            }
+        },
+        methods: {
+            // 提交方法
+            submit() {
+                // 先循环对象，再循环列表，进行属性切换
+                for (key in this.studentList) {
+                    this.studentList[key].forEach((item, index) => {
+                        if (this.text.includes(item.name)) {
+                            item.isActive = true
+                        }
+                    })
+                }
+            },
+            // 切换样式
+            toogle(item) {
+                item.isActive = !item.isActive
+            },
+            // 还原学生出勤历史
+            clearStudentList() {
+                for (key in this.studentList) {
+                    this.studentList[key].forEach((item) => {
+                        item.isActive = false
+                    })
+                }
+            }
+        },
+
+        // 创建后 对数组进行处理
+        created() {
+            for (key in this.studentList) {
+                console.log(this.studentList[key])
+                this.studentList[key] = this.studentList[key].map((item) => {
+                    return {
+                        name: item,
+                        isActive: false
+                    }
+                })
+                console.log(this.studentList)
+            }
+        },
+        // 获取本地存储数据，进行本地存储显示
+        beforeMount() {
+            let stu = window.localStorage.getItem("studentList")
+            if (stu) {
+                this.studentList = JSON.parse(stu)
+            }
+        },
+        // 数据监听
+        watch: {
+            // 深度监听学生list
+            studentList: {
+                deep: true,
+                handler(val) {
+                    window.localStorage.setItem("studentList", JSON.stringify(this.studentList))
+                }
+            }
+        }
+    })
+</script>
+
+</html>
