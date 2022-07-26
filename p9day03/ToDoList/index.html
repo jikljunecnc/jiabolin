@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="mainBox">
+      <!-- 标题 -->
+      <h1>&emsp;—ToDo&nbsp;List—</h1>
+      <!-- 记事本图片 -->
+      <p class="notebook">
+        <img src="./img/notebook.jpg" alt="图片无法加载" />
+      </p>
+      <!-- 灰色小字 -->
+      <!-- <p class="title">添加今日任务</p> -->
+      <!-- 输入框 -->
+      <input type="text" class="add-input" placeholder="Add new todo..." />
+      <!-- 点击进行添加按钮 -->
+      <button class="submit">Submit！</button>
+
+      <!-- 待办事件列表 -->
+      <ul class="Data_List"></ul>
+
+      <p class="bottomText">
+        <img
+          src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yNCA0TDI5LjI1MzMgNy44MzIwNEwzNS43NTU3IDcuODE5NjZMMzcuNzUzMyAxNC4wMDc3TDQzLjAyMTEgMTcuODE5N0w0MSAyNEw0My4wMjExIDMwLjE4MDNMMzcuNzUzMyAzMy45OTIzTDM1Ljc1NTcgNDAuMTgwM0wyOS4yNTMzIDQwLjE2OEwyNCA0NEwxOC43NDY3IDQwLjE2OEwxMi4yNDQzIDQwLjE4MDNMMTAuMjQ2NyAzMy45OTIzTDQuOTc4ODcgMzAuMTgwM0w3IDI0TDQuOTc4ODcgMTcuODE5N0wxMC4yNDY3IDE0LjAwNzdMMTIuMjQ0MyA3LjgxOTY2TDE4Ljc0NjcgNy44MzIwNEwyNCA0WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDZDMDFCIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNyAyNEwyMiAyOUwzMiAxOSIgc3Ryb2tlPSIjNDZDMDFCIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg=="
+          alt=""
+        />
+        <!-- Congrat, you have no more tasks to do -->
+      </p>
+      <br />
+      <p class="bottom_state">
+        <span class="Event_count">未完成数量:&nbsp;</span>&emsp;<br /><br />
+        <span class="show_all">全部</span>&emsp;
+        <span class="completed">已完成</span>&emsp;
+        <span class="active">未完成</span>&emsp;
+        <span class="clear_checked">清除完成项</span>
+      </p>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>

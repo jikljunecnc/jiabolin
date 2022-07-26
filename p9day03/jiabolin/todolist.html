@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(219, 127, 142);
+        }
+
+        img {
+            width: 200px;
+            height: 150px;
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+
+        .box2 {
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 20px pink;
+            border-radius: 20px;
+            background-color: rgb(218, 215, 215);
+
+        }
+
+        .box3 {
+            width: 150px;
+            height: 60px;
+            background-color: orange;
+            border-radius: 0 15px 15px 15px;
+            margin: auto;
+            text-align: center;
+            margin-top: 10px;
+            position: absolute;
+            top: -124px;
+            right: -100px;
+            position: relative;
+        }
+
+        .span1 {
+            font-size: 25px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .box4 {
+            position: absolute;
+            top: 217px;
+            left: 662px;
+        }
+
+        .span2 {
+            font-size: 25px;
+        }
+
+        .inp1 {
+            width: 200px;
+            height: 20px;
+            margin-left: 60px;
+            border-radius: 10px;
+        }
+
+        .but1 {
+            font-size: 20px;
+            border-radius: 10px;
+            /* 鼠标变小手 */
+            cursor: pointer;
+            /* 阴影色 */
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            margin-left: 170px;
+        }
+
+        .fx {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box1">
+        <div class="box2">
+            <img src="./image/微信图片_20220718194113.jpg" alt="">
+            <div class="box3">
+                <span class="span1">To-Do List</span>
+            </div>
+            <div class="box4">
+                <span class="span2">-Today | need to-</span>
+            </div>
+            <input type="text" class="inp1">
+            <button class="but1">添加</button>
+          
+            <button class="qk" >清空</button>
+            <ul></ul>
+        </div>
+
+    </div>
+
+    <script>
+        // 获取元素
+        var ul = document.querySelector("ul")
+        var inp1 = document.querySelector(".inp1")
+        var but1 = document.querySelector(".but1")
+        var qk = document.querySelector(".qk")
+
+
+        inp1.focus()//自动获取焦点
+        // 回车添加
+        inp1.onkeyup = function (e) {
+            if (e.keyCode == 13) {
+                // trim()方法用于删除字符串的头尾空白符
+                if (inp1.value.trim() == "") {
+                    alert("内容不能为空")
+                }
+                else {
+                    // 内容不能为空操作 创建内容 写入内容 添加标签
+                    // document.createElement是在对象中创建一个对象
+                    var li = document.createElement("li");
+                    li.innerHTML = `    
+<input type="checkbox" class="fx" >
+${inp1.value}
+<a href="#" class="del" >×</a>
+                    
+                    `
+                    // appendChild() 方法可向节点的子节点列表的末尾添加新的子节点
+                    ul.appendChild(li)
+                    // 回车完清空原来的数据
+                    inp1.value = ""
+                    // 获取道所有复选框 利用循环进行判断 
+                    var fx = document.querySelectorAll('.fx')
+                    for (var i = 0; i < fx.length; i++) {
+                        // 增加一个指定名称和值的新属性
+                        fx[i].setAttribute('ss', 1)
+                        // 方法用于向指定元素添加监听事件
+                        fx[i].addEventListener('change', function () {
+                            // 获取节点的属性
+                            if (this.getAttribute('ss') == 1) {
+                                this.setAttribute('ss', 2)
+                                // parentNode当前一个节点
+                                this.parentNode.style.backgroundColor = "orange"
+                            } else {
+                                this.setAttribute('ss', 1)
+                                this.parentNode.style.backgroundColor = ""
+                            }
+                            console.log(this);
+                        })
+                    }
+                }
+            }
+        }
+
+        // 点击添加非空判断
+        but1.onclick = function () {
+            if (inp1.value == "") {
+                alert("内容不能为空")
+            }
+            else {
+                var li = document.createElement("li");
+                li.innerHTML = `   
+                <input type="checkbox" class="fx" > 
+${inp1.value}
+<a href="#" class="del" >×</a>
+`
+                ul.appendChild(li)
+
+                var fx = document.querySelectorAll('.fx')
+                for (var i = 0; i < fx.length; i++) {
+                    fx[i].setAttribute('ss', 1)
+                    console.log(1);
+                    fx[i].addEventListener('change', function () {
+                        if (this.getAttribute('ss') == 1) {
+                            this.setAttribute('ss', 2)
+                            this.parentNode.style.backgroundColor = "orange"
+                        } else {
+                            this.setAttribute('ss', 1)
+                            this.parentNode.style.backgroundColor = ""
+                        }
+                        console.log(this);
+                    })
+                }
+            }
+        }
+
+
+        // 删除功能 事件委托 
+        ul.addEventListener("click", function (e) {
+            // 判断是删除按钮执行功能
+            // event.target.className　　//获取事件触发元素classname
+            if (e.target.className == "del") {
+                ul.removeChild(e.target.parentNode)
+                alert("删除成功")
+            }
+        })
+
+        // 清空
+        qk.onclick=function(){
+            ul.innerHTML=''
+            alert("清空成功")
+        }
+
+        // 点击复选框 选中数据文字添加一条删除线
+        ul.addEventListener("click", function (e) {
+            //判断是完成按钮执行功能
+            if (e.target.className == "fx") {
+
+                e.target.parentNode.style.textDecoration = "line-through";//使用文本属性 Text-decoration 给div标签添加一个下划线
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

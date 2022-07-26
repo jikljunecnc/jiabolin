@@ -1,0 +1,175 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: linear-gradient(90deg, skyblue, blue) !important; */
+  background-color: black;
+}
+
+.mainBox {
+  width: 420px;
+  background-color: rgb(254, 252, 252);
+  position: relative;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding: 20px;
+  overflow: auto;
+  margin-top: 120px;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: "黑体";
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.title {
+  color: rgba(123, 123, 123, 0.5);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.notebook {
+  width: 76px;
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  left: 44px;
+}
+
+.notebook img {
+  width: 100%;
+  height: 100%;
+}
+
+.add-input {
+  margin-left: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 3px dashed #fe7345;
+  padding: 5px 3px;
+  font-size: 18px;
+  background: transparent;
+}
+
+.submit {
+  width: 100px;
+  height: 42px;
+  color: skyblue;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 0;
+  font-weight: 600;
+  font-size: 20px;
+  transform: rotate(7deg);
+}
+.submit:active {
+  animation: bu 0.3s;
+  transform: rotate(0deg);
+  box-shadow: 0px 0px 0px black;
+}
+@keyframes bu {
+  0% {
+    transform: rotate(7deg);
+  }
+}
+.Data_List {
+  margin-top: 30px;
+  width: 348px;
+  padding-left: 20px;
+}
+.Data_List li {
+  width: 100%;
+  height: 40px;
+  border-radius: 12px;
+  list-style: none;
+  /* background: linear-gradient(90deg, skyblue, blue); */
+  background-color: #ccc;
+  margin-top: 16px;
+  padding-left: 16px;
+  line-height: 40px;
+  position: relative;
+  font-family: "黑体";
+}
+
+.Data_List li img {
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  cursor: pointer;
+}
+
+.checked_state {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 10%;
+  margin-right: 20px;
+}
+
+.State_Css {
+  text-decoration: line-through #fff 2px;
+  background: linear-gradient(90deg, rgb(33, 31, 41), rgb(169, 35, 89)) !important;
+  color: #fff;
+  font-family: "黑体";
+  /* 添加翻转动画 */
+  animation: update_checked_state 0.8s ease-in-out both;
+}
+
+/* 翻转样式 */
+@keyframes update_checked_state {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0.2;
+  }
+  40% {
+    transform: rotateX(-10deg);
+  }
+  70% {
+    transform: rotateX(10deg);
+  }
+  to {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.bottomText {
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+  color: rgba(73, 74, 75, 0.45);
+  text-align: center;
+  position: relative;
+  bottom: 2px;
+  font-weight: 800;
+}
+
+.bottomText img {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  top: 4.6px;
+}
+
+.bottom_state {
+  display: none;
+  text-align: center;
+  position: relative;
+  bottom: 2px;
+}
+
+.bottom_state span {
+  display: inline-block;
+  font-family: cursive;
+  font-weight: 700;
+}
+
+.bottom_state span:hover {
+  cursor: pointer;
+}
