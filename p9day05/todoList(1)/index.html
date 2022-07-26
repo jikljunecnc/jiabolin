@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>列表任务清单</title>
+  <link rel="stylesheet" href="./todoList.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- 我们实现的功能点有 头部,中间,已完成,未完成,清空已勾选,删除,总条数 -->
+    <header>
+      <div class="img-wrapper">
+        <img src="./assest/edit.svg" alt="todo" class="img-content"/>
+      </div>
+      <div class="title">今日TODO</div>
+    </header>
+    <div>
+      <h1 class="need-dothings">~今天我需要做的事情~</h1>
+      <!-- 头部有输入框 -->
+      <input type="text" class="input-todoList" id='inputValue' placeholder="请输入未完成的list" onkeydown="addTodoList(event)">
+      <button class="submit-btn" onclick="addTodoList()">添加</button>
+    </div>
+    <content>
+      <ul>
+        <!-- <li class="li-style">
+          <div class="li-style-div">
+            <input type="checkbox" class="checkbox"></input>
+            <p class="li-style-div-content">我是mock数据</p>
+          </div>
+          <button class="button-close">X</button>
+        </li>
+        <li class="li-style">
+          <div class="li-style-div">
+            <input type="checkbox" class="checkbox"></input>
+            <p class="li-style-div-content">我是mock数据</p>
+          </div>
+          <button class="button-close">X</button>
+        </li>
+        <li class="li-style">
+          <div class="li-style-div">
+            <input type="checkbox" class="checkbox"></input>
+            <p class="li-style-div-content">我是mock数据</p>
+          </div>
+          <button class="button-close">X</button>
+        </li> -->
+      </ul>
+      <!-- 中间内容区包括列表展示和多选框以及删除按钮 -->
+    </content>
+    <footer>
+      <div id="item-current" class="button">无事项</div>
+      <!-- <button class="button-active">查看所有</button> -->
+      <button onclick="viewAllInfo()" class="button clickButton" id="allinfo">查看所有</button>
+      <button onclick="toBeCompleted()" class="button" id="completed_todo">待完成</button>
+      <button onclick="completed()" class="button" id="completed_order">已完成</button>
+      <button onclick="clearAll()" class="button" id="clear_completed">清空所有</button>
+      <!-- 尾部,有总条数,已完成,待完成,清空,查看全部等功能 -->
+    </footer>
+  </div>
+</body>
+<script src="./todoList.js"></script>
+</html>
