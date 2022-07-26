@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>全选、反选、全不选和删除选中项</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+</head>
+<style type="text/css">
+    tr {
+        text-align: center;
+    }
+
+    thead {
+        font-weight: 1000;
+    }
+</style>
+
+<body>
+    <div align="center">
+        <br />
+        <input id="checkAll" type="button" value="全选">
+        <input id="unCheckAll" type="button" value="全不">
+        <input id="reverseCheck" type="button" value="反选">
+        <input id="checkSelceted" type="button" value="删除选中项">
+        <br /><br />
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr>
+                    <td>编号</td>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>年龄</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="check" /></td>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>18</td>
+                    <td>
+                        <button>修改</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="check" /></td>
+                    <td>李四</td>
+                    <td>男</td>
+                    <td>19</td>
+                    <td>
+                        <button>修改</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="check" /></td>
+                    <td>王五</td>
+                    <td>女</td>
+                    <td>16</td>
+                    <td>
+                        <button>修改</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    /*一：需求分析：
+        (1)点击全选：选中所有选择框（设置checked属性为true）
+        (2)点击全不选：不选中所有选择框（设置checked属性为false）
+        (3)点击反选：让每一个选择框的checked属性与自身相反
+         二：思路分析
+          1.获取元素
+          2.注册事件
+          3.事件处理
+    */
+    //1.获取页面元素
+    var checkAll = document.getElementById('checkAll');//全选
+    var unCheckAll = document.getElementById('unCheckAll');//全不选
+    var reverseCheck = document.getElementById('reverseCheck');//反选
+    var checkList = document.getElementsByClassName('check');//选择框列表
+    //2.注册事件
+    //2.1 全选
+    checkAll.onclick = function () {
+        //3.事件处理：选中所有选择框（设置checked属性为true）
+        for (var i = 0; i < checkList.length; i++) {
+            checkList[i].checked = true;
+        }
+    }
+    //2.2 全不选
+    unCheckAll.onclick = function () {
+        //3.事件处理:不选中所有选择框（设置checked属性为false）
+        for (var i = 0; i < checkList.length; i++) {
+            checkList[i].checked = false;
+        }
+    }
+    //2.3 反选
+    reverseCheck.onclick = function () {
+        //3.事件处理:让每一个选择框的checked属性与自身相反
+        for (var i = 0; i < checkList.length; i++) {
+            checkList[i].checked = !checkList[i].checked;//逻辑非取反
+            // if (checkList[i].checked == true){
+            //   checkList[i].checked = false;
+            // }else{//false
+            //   checkList[i].checked = true;
+            // }
+        }
+    }
+    //2.4 删除所选项
+    var array = new Array();//定义一个数组存放被勾选的所选项
+    checkSelceted.onclick = function () {
+        for (var i = 0; i < checkList.length; i++) {//对所有的input标签进行遍历，找出被勾选的节点
+            if (checkList[i].checked == true) {
+                var node = checkList[i].parentNode.parentNode;//input节点的父节点的父节点是tr
+                array.push(node);//存放在数组里，待会遍历删除该节点
+                //	      	console.log(checkList[i]);
+                //	      	checkList[i].parentNode.parentNode.parentNode.removeChild(node);
+            }
+        }
+        //	 	console.log(array);
+        for (var i = 0; i < array.length; i++) {//遍历被勾选的结点的父节点的父节点，也就是tr
+            array[i].parentNode.removeChild(array[i]);//找到tr的父节点tbody，然后删除这个tr节点
+        }
+        array.length = 0;//删除完成之后要对数组清空
+    }
+
+</script>
+
+</html>
