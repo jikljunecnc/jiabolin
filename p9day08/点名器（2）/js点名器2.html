@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击按钮随机点名-样式布局参考</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #box {
+            width: 200px;
+            height: 110px;
+            margin: 0px auto;
+            background-color: #ff5a20;
+            border-radius: 10%;
+
+        }
+
+        #ti {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            border-radius: 10%;
+            background-color: #c5c5c5;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 35px;
+            margin-left: 50px;
+            border: 1px solid #bb6647;
+
+        }
+
+        #bt {
+            position: absolute;
+            top: 75px;
+            width: 45px;
+            height: 22px;
+            margin-left: 75px;
+            background-color: green;
+            border: 1px solid white;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        var namelist = ["张三", "李四", "王五", "赵六", "孙七"];
+        var mytime = null;
+
+        function doit() {
+            var bt = window.document.getElementById("bt");
+            if (mytime == null) {
+                bt.innerHTML = "停止";
+                bt.style.backgroundColor = "red";
+                bt.style.boxShadow = "1px 1px 1px 1px #4b6094"
+                show();
+            }
+            else {
+                bt.innerHTML = "开始";
+                clearTimeout(mytime);
+                mytime = null;
+                bt.style.backgroundColor = "green";
+            }
+        }
+
+        function show() {
+            var ti = window.document.getElementById("ti");
+            var num = Math.floor((Math.random() * 1000)) % namelist.length;
+            ti.innerHTML = namelist[num];
+            mytime = setTimeout("show()", 1);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <div id="ti">随机点名器</div>
+        <div id="bt" onclick="doit()">开始</div>
+    </div>
+</body>
+
+</html>

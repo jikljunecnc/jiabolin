@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "goods_name": "vivo 手机 p30",
+      "price": 1242
+    },
+    {
+      "id": 2,
+      "goods_name": "苹果手机 iphone plus",
+      "price": 45000
+    },
+    {
+      "id": 3,
+      "goods_name": "宝马 X7 4驱",
+      "price": 750000
+    },
+    {
+      "id": 4,
+      "goods_name": "宝马 5系 2驱",
+      "price": 450000
+    },
+    {
+      "id": 5,
+      "goods_name": "锤子手机 200G",
+      "price": 2000
+    },
+    {
+      "id": 6,
+      "goods_name": "华为手机 P40",
+      "price": 5000
+    },
+    {
+      "id": 7,
+      "goods_name": "红米 手机",
+      "price": 1200
+    },
+    {
+      "id": 8,
+      "goods_name": "海尔电冰箱 3匹",
+      "price": 980
+    },
+    {
+      "id": 9,
+      "goods_name": "苹果笔记本电脑 i9",
+      "price": 20000
+    },
+    {
+      "id": 10,
+      "goods_name": "精品手机 华为 200G",
+      "price": 3200
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+    {
+        "img": "https://dss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/boxapp_novel/wh%3D315%2C423/sign=fa28faae39d12f2ece50a6637ef7f956/472309f790529822f3caa2bad8ca7bcb0b46d4ca.jpg",
+        "name": "红楼梦",
+        "id": 1,
+        "state": 0,
+        "desc": "中国古代章回体长篇小说，中国古典四大名著之一，一般认为是清代作家曹雪芹所著"
+    },
+    {
+        "img": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=475428883,4006576967&fm=26&gp=0.jpg",
+        "name": "西游记",
+        "state": 0,
+        "id": 2,
+        "desc": "《西游记》是中国古代第一部浪漫主义章回体长篇神魔小说。现存明刊百回本《西游记》均无作者署名。清代学者吴玉搢等首先提出《西游记》作者是明代吴承恩"
+    },
+    {
+        "name": "水浒传",
+        "state": 0,
+        "id": 3,
+        "img": "https://dss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/boxapp_novel/wh%3D267%2C357/sign=40a24dadd754564ee530ec3b85e9b0b1/359b033b5bb5c9ea1c38725ddf39b6003bf3b340.jpg",
+        "desc": "《水浒传》是一部以描写古代农民起义为题材的长篇小说"
+    },
+    {
+        "img": "https://dss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/boxapp_novel/wh%3D315%2C423/sign=78117d558801a18bf0be1a4caf1a2b3c/9345d688d43f87945707b357dd1b0ef41ad53acb.jpg",
+        "name": "三国演义",
+        "state": 0,
+        "id": 4,
+        "desc": "（全名为《三国志通俗演义》，又称《三国志演义》）是元末明初小说家罗贯中根据陈寿《三国志》和裴松之注解以及民间三国故事传说经过艺术加工创作而成"
+    },
+    {
+        "img": "https://wkphoto.cdn.bcebos.com/b151f8198618367afc0aaba328738bd4b21ce5c9.jpg",
+        "name": "笑面人",
+        "state": 0,
+        "id": 5,
+        "desc": "是雨果在一八六九年写成的长篇小说。是雨果流亡时期创作的最后一部长篇小说"
+    },
+    {
+        "img": "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4063088639,3015275829&fm=26&gp=0.jpg",
+        "name": "拿破仑",
+        "state": 0,
+        "id": 6,
+        "desc": "拿破仑·波拿巴（法语：Napoléon Bonaparte，1769年8月15日－1821年5月5日），即拿破仑一世（Napoléon I），出生于科西嘉岛"
+    },
+    {
+        "img": "http://image12.bookschina.com/2018/20180309/B7886771.jpg",
+        "name": "郭论",
+        "state": 0,
+        "id": 7,
+        "desc": "本书是著名艺人郭德纲在一档音频节目中演出的文字版"
+    },
+    {
+        "img": "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4034976201,2768159984&fm=26&gp=0.jpg",
+        "name": "呼啸山庄",
+        "state": 0,
+        "id": 8,
+        "desc": "《呼啸山庄》是英国女作家勃朗特姐妹之一艾米莉·勃朗特的作品，是19世纪英国文学的代表作之一"
+    },
+    {
+        "img": "https://cbu01.alicdn.com/img/ibank/2020/249/647/16546746942_1018421536.jpg?_=2020",
+        "name": "孙子兵法",
+        "state": 0,
+        "id": 9,
+        "desc": "《孙子兵法·始计篇》是春秋时期兵法家孙武创作的一篇散文"
+    },
+    {
+        "img": "https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=995597006,3455561402&fm=26&gp=0.jpg",
+        "name": "中华上下五千年",
+        "state": 0,
+        "id": 10,
+        "desc": "《中国上下五千年》是2010年11月1日由中央编译出版社、京华出版社出版的一本图书，作者是李津"
+    },
+    {
+        "img": "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1834003510,2183659667&fm=26&gp=0.jpg",
+        "name": "资治通鉴",
+        "state": 0,
+        "id": 11,
+        "desc": "《资治通鉴》(常简作《通鉴》),由北宋司马光主编的一部多卷本编年体史书,共294卷,历时19年完成"
+    },
+    {
+        "img": "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1992795115,669753084&fm=26&gp=0.jpg",
+        "name": "伤寒杂病论",
+        "state": 0,
+        "id": 12,
+        "desc": "《伤寒杂病论》是中国传统医学著作之一，是一部论述外感病与内科杂病为主要内容的医学典籍，作者是东汉末年张仲景，至今是中国中医院校开设的主要基础课程之一"
+    }
+]

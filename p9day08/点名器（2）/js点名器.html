@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>随机点名系统</title>
+    <style>
+        body {
+            background-image: url(1.jpg);
+        }
+
+        .box {
+            width: 1000px;
+            height: 240px;
+            margin: 0 auto;
+            margin-top: 100px;
+            clear: both;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px;
+            margin-left: 600px;
+            margin-top: 50px;
+        }
+
+        .name {
+            width: 100px;
+            height: 30px;
+            float: left;
+            background-color: #1e78d2;
+            margin-left: 10px;
+            margin-top: 10px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #span {
+            float: right;
+            position: relative;
+            top: 55px;
+            right: 185px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>随机点名系统</h1>
+    <span id="span"></span>
+    <div class="box" id="box"></div>
+    <input type="button" id="btn" value="点名">
+    <script type="text/javascript">
+        //创建名字数组
+        var arrs = ["迪迦奥特曼", "戴拿奥特曼", "盖亚奥特曼", "赛文奥特曼", "赛罗奥特曼", "梦比优斯奥特曼", "雷欧奥特曼", "雷杰多奥特曼",
+            "诺亚奥特曼", "赛迦奥特曼", "银河胜利奥特曼", "艾斯奥特曼", "爱迪奥特曼", "佐菲奥特曼", "银河奥特曼", "维科特利奥特曼", "捷德奥特曼", "麦克斯奥特曼"
+            , "泰罗奥特曼", "杰克奥特曼", "乔尼亚斯奥特曼", "尤莉安奥特曼", "葛雷奥特曼", "阿古茹奥特曼", "哉阿斯奥特曼", "纳伊斯奥特曼", "高斯奥特曼", "杰斯提斯奥特曼"
+            , "希卡利奥特曼", "艾克斯奥特曼", "初代奥特曼", "查克奥特曼", "帕瓦特奥特曼", "斯科特奥特曼", "尼奥斯奥特曼", "帕瓦德奥特曼", "贝丝奥特曼", "欧布奥特曼"
+            , "布鲁奥特曼", "风马奥特曼", "泽塔奥特曼", "贝利亚奥特曼", "托雷基奥特曼", "泰塔斯奥特曼", "杰诺奥特曼"];
+        //获得盒子
+        //getElementById() 方法可返回对拥有指定 ID 的第一个对象的引用。
+        var boxNode = document.getElementById("box");
+        for (var i = 0; i < arrs.length; i++) {
+            0
+            //创建新元素
+            //创建指定文本的按钮你需要在按钮元素后添加文本节点
+            var divNode = document.createElement("div");
+            //innerHTML 属性设置或返回表格行的开始和结束标签之间的 HTML。
+            divNode.innerHTML = arrs[i];
+            //className 属性设置或返回元素的 class 属性。
+            divNode.className = "name";
+            //appendChild() 方法向节点添加最后一个子节点。
+            //也可以使用 appendChild() 方法从一个元素向另一个元素中移动元素。
+            boxNode.appendChild(divNode);
+        }
+        //点名
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            if (this.value == "点名") {
+                //setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。
+                timeId = setInterval(function () {
+                    //清空所有颜色
+                    for (var j = 0; j < arrs.length; j++) {
+                        //children 属性返回元素的子元素的集合
+                        boxNode.children[j].style.background = "";
+                    }
+                    //留下当前颜色
+                    var random = parseInt(Math.random() * arrs.length);
+                    boxNode.children[random].style.background = "#cece12";
+                }, 20)
+                this.value = "停止";
+            } else {
+                //停止循环
+                clearInterval(timeId);
+                this.value = "点名";
+            }
+        }
+        var spanNode = document.getElementById("span");
+        //调用时间
+        getTime();
+        setInterval(getTime, 1000);
+        function getTime() {
+            var day = new Date();
+            var year = day.getFullYear();
+            var month = day.getMonth() + 1;
+            var date = day.getDate();
+            var hours = day.getHours();
+            var minitues = day.getMinutes();
+            var second = day.getSeconds();
+            spanNode.innerHTML = year + "-" + month + "-" + date + " " + hours + ":" + minitues + ":" + second;
+        }
+    </script>
+</body>
+
+</html>
